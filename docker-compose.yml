@@ -3,9 +3,10 @@ services:
     nginx:
         image: nginx:latest
         ports:
-            - "8080:80"
+            - "8080:443"
         volumes:
             - ./nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf
+            - ./nginx/keys:/work/keys
         depends_on:
             - "go"
     go:
